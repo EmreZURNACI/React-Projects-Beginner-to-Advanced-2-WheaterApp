@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
+import WeatherContextProvider from "./Contexts/WeatherContext";
+import CityContextProvider from "./Contexts/CityContext";
+import Features from "./Templates/Features";
+import PictureBackground from "./Templates/PictureBackground";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CityContextProvider>
+      <WeatherContextProvider>
+        <div className={"container-fluid p-0  background "}>
+          <div className="row m-0">
+            <div className="p-0 col-8">
+              <PictureBackground />
+            </div>
+            <div className="p-0 col-4">
+              <Features />
+            </div>
+          </div>
+        </div>
+      </WeatherContextProvider>
+    </CityContextProvider >
+
   );
 }
 
